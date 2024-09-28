@@ -1,7 +1,34 @@
-
-<h1>Welcome to the Book Library</h1>
-<ul>
-    <% books.forEach(book => { %>
-        <li><%= book.title %> by <%= book.author %></li>
-    <% }); %>
-</ul>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Food Menu</title>
+</head>
+<body>
+    <div class="Menu-Container">
+        <h1>Our Menu</h1>
+        <div class="Menu-Item">
+            <h2>Energy Bowl</h2>
+            <p>A classic bowl with full of protein made with rajma,rice,cheese and tofu.</p>
+            <span>Rs399</span>
+        </div>
+        <div class="Menu-Item">
+            <h2>Margherita Pizza</h2>
+            <p>Tomato, mozzarella, and fresh basil pizza that’s simply delicious.</p>
+            <span>Rs199</span>
+        </div>
+        <div class="Menu-Item">
+            <h2>Lettuce Salad</h2>
+            <p>Soft lettuce, carrot, and paneer seasoning.</p>
+            <span>Rs150</span>
+        </div>
+        <div class="Menu-Item">
+            <h2>Chocolate Lava Cake</h2>
+            <p>A rich chocolate cake with filling of dark chocolate.</p>
+            <span>Rs99</span>
+        </div>
+    </div>
+</body>
+</html>
