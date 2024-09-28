@@ -3,4 +3,19 @@ body {
     line-height: 1.6;
     margin: 0;
     padding: 20px;
+    text-align: center;
+}
+.nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    font-size: 30px;
+}
+ul li {
+    list-style-type: none;
+}
+
+ul li a:hover {
+    color: blue;
 }
