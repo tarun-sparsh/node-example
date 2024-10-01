@@ -6,7 +6,6 @@ const errorHandler = require('./src/middleware/errorHandler');
 
 const { Client, LocalAuth,MessageMedia } = require('whatsapp-web.js');
 const qrcode = require('qrcode-terminal');
-const multer = require('multer');
 
 
 const app = express();
