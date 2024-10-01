@@ -4,8 +4,9 @@ const apiRoutes = require('./src/api/routes/apiRoutes');
 const webRoutes = require('./src/web/routes/webRoutes');
 const errorHandler = require('./src/middleware/errorHandler');
 
-const { Client, LocalAuth } = require('whatsapp-web.js');
+const { Client, LocalAuth,MessageMedia } = require('whatsapp-web.js');
 const qrcode = require('qrcode-terminal');
+const multer = require('multer');
 
 
 const app = express();
@@ -40,6 +41,28 @@ client.on('ready', () => {
 });
 
 client.initialize();
+
+// API endpoints
+app.post('/send-message', async (req, res) => {
+  const { number, messageType, message } = req.body;
+
+  try {
+    const chatId = number.includes('@c.us') ? number : `${number}@c.us`;
+
+    if (messageType === 'text') {
+      await client.sendMessage(chatId, message);
+    } else if (messageType === 'media') {
+      const media = await MessageMedia.fromUrl(message); // Use MessageMedia.fromUrl for URLs
+      await client.sendMessage(chatId, media);
+    } else {
+      throw new Error('Unsupported message type');
+    }
+
+    res.status(200).json({ status: 'success', message: 'Message sent' });
+  } catch (error) {
+    res.status(500).json({ status: 'error', message: error.message });
+  }
+});
 
 
 
